@@ -5,7 +5,7 @@ A Symfony application demoing a simple GraphQL API with [Overblog GraphQLBundle]
 ## Install
 
 ```
-git clone git@github.com:mentionapp/graphql-demo
+git clone https://github.com/arnaud-lb/graphql-demo.git
 composer install
 php -S 127.0.0.1:8080 -t public/
 ```
