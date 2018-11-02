@@ -8,7 +8,7 @@ class DateTimeType
 {
     public static function serialize(\DateTimeInterface $value): string
     {
-        return $value->format('Y-m-d H:i:s');
+        return $value->format(DATE_RFC3339);
     }
  
     /**
