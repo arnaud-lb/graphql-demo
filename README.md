@@ -22,5 +22,3 @@ Then, go to 127.0.0.1:8080/graphiql
 
 - Proper error reporting
 - Count field on a connection
-- Filter on a connection (e.g. issue type)
-- Proper date format
