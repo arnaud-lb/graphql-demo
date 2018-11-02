@@ -1,0 +1,14 @@
+User:
+    type: object
+    config:
+        description: "A User"
+        fields:
+            id:
+                builder: "Relay::GlobalId"
+            firstname:
+                description: "User first name"
+                type: String!
+            lastname:
+                description: "User last name"
+                type: String!
+        interfaces: [Node]

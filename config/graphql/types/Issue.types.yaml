@@ -1,0 +1,20 @@
+Issue:
+    type: interface
+    config:
+        description: "An issue"
+        fields:
+            id:
+                builder: "Relay::GlobalId"
+            title:
+                type: String!
+                description: "Issue title"
+            description:
+                type: String!
+                description: "Issue description"
+            points:
+                type: Int!
+                description: "Issue points"
+            resolved:
+                type: Boolean!
+                description: "Whether the issue is resolved. An issue can be resolved with the resolveIssue mutation."
+        resolveType: "@=resolver('issue_type', [value])"

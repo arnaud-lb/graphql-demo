@@ -1,0 +1,6 @@
+Bug:
+    type: object
+    inherits: [Issue]
+    config:
+        description: "A bug issue"
+        interfaces: [Issue, Node]

@@ -1,0 +1,13 @@
+Query:
+    type: object
+    config:
+        description: "The root of the query graph"
+        fields:
+            viewer:
+                type: Viewer!
+                resolve: '@=resolver("query_viewer")'
+            node:
+                builder: "Relay::Node"
+                builderConfig:
+                    nodeInterfaceType: Node
+                    idFetcher: '@=resolver("node_id_fetcher", [value])'
