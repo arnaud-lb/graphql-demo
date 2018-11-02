@@ -1,0 +1,43 @@
+Sprint:
+    type: object
+    config:
+        description: "A sprint"
+        fields:
+            id:
+                builder: "Relay::GlobalId"
+            name:
+                type: String!
+                description: "Sprint name"
+            owner:
+                type: User!
+                description: "Sprint owner"
+            started:
+                type: Boolean!
+                description: "Whether the sprint is started"
+            startDate:
+                type: DateTime
+                description: "Start date of the sprint"
+            issues:
+                description: "Issues in this sprint"
+                type: sprintIssuesConnection!
+                argsBuilder: "Relay::Connection"
+                resolve: '@=resolver("sprint_issues", [value, args])'
+                args:
+                    filter:
+                        type: SprintIssuesFilter
+                        description: "Filter issues"
+        interfaces: [Node]
+
+SprintIssuesFilter:
+    type: input-object
+    config:
+        fields:
+            type:
+                description: "Filter by issue type. Possible values are GraphQL issue types (e.g. Bug, Task)"
+                type: String!
+
+sprintIssuesConnection:
+    type: relay-connection
+    config:
+        nodeType: Issue!
+        resolveNode: '@=value.node'

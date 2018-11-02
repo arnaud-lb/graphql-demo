@@ -1,0 +1,49 @@
+Mutation:
+    type: object
+    config:
+        fields:
+            startSprint:
+                description: "Start a sprint"
+                builder: "Relay::Mutation"
+                builderConfig:
+                    inputType: StartSprintInput
+                    payloadType: StartSprintPayload
+                    mutateAndGetPayload: '@=mutation("start_sprint", [value["sprintId"]])'
+
+            resolveIssue:
+                description: "Resolve an issue"
+                builder: "Relay::Mutation"
+                builderConfig:
+                    inputType: ResolveIssueInput
+                    payloadType: ResolveIssuePayload
+                    mutateAndGetPayload: '@=mutation("resolve_issue", [value["issueId"]])'
+
+StartSprintInput:
+    type: relay-mutation-input
+    config:
+        fields:
+            sprintId:
+                description: "The sprint ID to start"
+                type: ID!
+
+StartSprintPayload:
+    type: relay-mutation-payload
+    config:
+        fields:
+            sprint:
+                type: Sprint!
+
+ResolveIssueInput:
+    type: relay-mutation-input
+    config:
+        fields:
+            issueId:
+                description: "The issue ID to resolve"
+                type: ID!
+
+ResolveIssuePayload:
+    type: relay-mutation-payload
+    config:
+        fields:
+            issue:
+                type: Issue!

@@ -1,0 +1,20 @@
+Viewer:
+    type: object
+    config:
+        description: "The current viewer"
+        fields:
+            user:
+                type: User!
+                resolve: '@=resolver("viewer_user", [value])'
+                description: "The current logged in user"
+            sprints:
+                type: viewerFieldsConnection
+                argsBuilder: "Relay::Connection"
+                resolve: '@=resolver("viewer_sprints", [args])'
+                description: "All accessible sprints"
+
+viewerFieldsConnection:
+    type: relay-connection
+    config:
+        nodeType: Sprint!
+        resolveNode: '@=value.node'

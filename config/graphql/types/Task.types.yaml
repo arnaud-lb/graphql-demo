@@ -1,0 +1,6 @@
+Task:
+    type: object
+    inherits: [Issue]
+    config:
+        description: "A task issue"
+        interfaces: [Issue, Node]

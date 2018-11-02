@@ -1,0 +1,9 @@
+includes:
+     - ./vendor/phpstan/phpstan-symfony/extension.neon
+     - ./vendor/phpstan/phpstan-doctrine/extension.neon
+     - ./vendor/phpstan/phpstan/conf/config.levelmax.neon
+     - ./vendor/phpstan/phpstan-strict-rules/rules.neon
+
+parameters:
+    symfony:
+        container_xml_path: 'var/cache/dev/srcDevDebugProjectContainer.xml'

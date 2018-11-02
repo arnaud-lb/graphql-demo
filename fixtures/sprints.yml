@@ -1,0 +1,6 @@
+App\Entity\Sprint:
+    sprint_{1..10}:
+        __construct:
+            - "Respond sprint <current()>"
+            - '@user*'
+            - '<numberBetween(1, 20)>x @issue*'
