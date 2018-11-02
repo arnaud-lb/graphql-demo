@@ -22,7 +22,19 @@ Sprint:
                 type: sprintIssuesConnection!
                 argsBuilder: "Relay::Connection"
                 resolve: '@=resolver("sprint_issues", [value, args])'
+                args:
+                    filter:
+                        type: SprintIssuesFilter
+                        description: "Filter issues"
         interfaces: [Node]
+
+SprintIssuesFilter:
+    type: input-object
+    config:
+        fields:
+            type:
+                description: "Filter by issue type. Possible values are GraphQL issue types (e.g. Bug, Task)"
+                type: String!
 
 sprintIssuesConnection:
     type: relay-connection

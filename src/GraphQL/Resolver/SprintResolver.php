@@ -13,8 +13,11 @@ final class SprintResolver implements ResolverInterface, AliasedInterface
 {
     public function issues(Sprint $sprint, Argument $args): Connection
     {
-        $paginator = new Paginator(function ($offset, $limit) use ($sprint) {
-            return $sprint->getIssues()->slice($offset, $limit);
+        $filter = $args['filter'] ?? [];
+        $type = $filter['type'] ?? null;
+
+        $paginator = new Paginator(function ($offset, $limit) use ($sprint, $type) {
+            return $sprint->getIssues($type)->slice($offset, $limit);
         });
 
         $connection = $paginator->forward($args);

@@ -6,6 +6,7 @@ use App\Entity\Issue;
 use App\Entity\User;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
+use Doctrine\Common\Collections\Criteria;
 use Doctrine\Common\Collections\Selectable;
 use Doctrine\ORM\Mapping\Column;
 use Doctrine\ORM\Mapping\Entity;
@@ -91,8 +92,16 @@ class Sprint
     /**
      * @return iterable<Issue>&Collection&Selectable
      */
-    public function getIssues(): Collection
+    public function getIssues($type = null): Collection
     {
+        if ($type !== null) {
+            return $this->issues->matching(
+                Criteria::create()->where(
+                    Criteria::expr()->eq('type', $type)
+                )
+            );
+        }
+
         return $this->issues;
     }
 
