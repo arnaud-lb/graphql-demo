@@ -17,3 +17,10 @@ Then, go to 127.0.0.1:8080/graphiql
 - Overblog GraphQLBundle: https://github.com/overblog/GraphQLBundle
 - Alice data fixtures: [nelmio/alice](https://github.com/nelmio/alice) / [AliceBundle](https://github.com/hautelook/AliceBundle) / [theofidry/AliceDataFixtures](https://github.com/theofidry/AliceDataFixtures)
 - Doctrine: https://github.com/doctrine/doctrine2
+
+## TODO
+
+- Proper error reporting
+- Count field on a connection
+- Filter on a connection (e.g. issue type)
+- Proper date format
